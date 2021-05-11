@@ -3,12 +3,20 @@ package com.sklinn.warehousemxinfosystem
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import androidx.room.Dao
+import com.sklinn.warehousemxinfosystem.Adapter.ProductListAdapter
+import com.sklinn.warehousemxinfosystem.Model.AppDatabase
+import com.sklinn.warehousemxinfosystem.Model.ProductDao
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
 
         bot_navigation.setOnNavigationItemSelectedListener { item->
             val fragment = when(item.itemId){

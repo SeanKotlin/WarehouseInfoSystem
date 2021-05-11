@@ -55,9 +55,20 @@
                 android:layout_marginStart="20dp"
                 android:maxLines="1"
                 android:text="Product Name"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/item_program" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnDelete"
+                app:layout_constraintStart_toEndOf="@id/item_ProductName"
+                app:layout_constraintTop_toBottomOf="@id/item_program"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:icon="@drawable/ic_delete"
+                android:text="Delete"
+                style="@style/Widget.MaterialComponents.Button.TextButton.Dialog"
+                />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

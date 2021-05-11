@@ -4,19 +4,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.sklinn.warehousemxinfosystem.Product
+import com.sklinn.warehousemxinfosystem.Model.Product
 import com.sklinn.warehousemxinfosystem.R
 import kotlinx.android.synthetic.main.item_product.view.*
 
-class ProductListAdapter: RecyclerView.Adapter<ProductListAdapter.myViewHolder>() {
+class ProductListAdapter(
+    private val listener: ProductItemListener
+): RecyclerView.Adapter<ProductListAdapter.myViewHolder>() {
     private var productlist = mutableListOf<Product>()
 
-    class myViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+    inner class myViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         fun populateUi(data: Product){
             itemView.item_program.text = data.pProgram
             itemView.item_ProductName.text = data.pName
+
+            itemView.btnDelete.setOnClickListener {
+                listener.onDeleteClick(data)
+            }
         }
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): myViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
