@@ -1,12 +1,13 @@
-package com.sklinn.warehousemxinfosystem
+package com.sklinn.warehousemxinfosystem.Activity
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.sklinn.warehousemxinfosystem.Model.AppDatabase
+import com.sklinn.warehousemxinfosystem.AppDatabase.AppDatabase
 import com.sklinn.warehousemxinfosystem.Model.Product
 import com.sklinn.warehousemxinfosystem.Model.ProductDao
+import com.sklinn.warehousemxinfosystem.R
 import kotlinx.android.synthetic.main.activity_product_info.*
 
 class ProductInfoActivity : AppCompatActivity() {
@@ -26,7 +27,7 @@ class ProductInfoActivity : AppCompatActivity() {
         productDao = AppDatabase.getDatabase(applicationContext).getProductDao()
 
         //create product
-        fabAcceptProduct.setOnClickListener {
+        fabAcceptVendor.setOnClickListener {
             createProduct()
             finish()
         }
@@ -38,12 +39,12 @@ class ProductInfoActivity : AppCompatActivity() {
     }
 
     private fun createProduct() {
-        val productName = etProductName.text.toString()
-        val productUnit = etProductUnit.text.toString()
-        val prductBatch = etProductBatchNumber.text.toString()
-        val productExpiry = etProductExpiry.text.toString()
-        val productGeneric = etProductGenericName.text.toString()
-        val productCategory = etProductCategory.text.toString()
+        val productName = etVendorName.text.toString()
+        val productUnit = etVendorEmail.text.toString()
+        val prductBatch = etVendorPhone.text.toString()
+        val productExpiry = etVendorAddress.text.toString()
+        val productGeneric = etTransportInfo.text.toString()
+        val productCategory = etVendorPassword.text.toString()
         val productCode = etProductCode.text.toString()
         val productProgram = etProductProgram.text.toString()
         val product = Product(

@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.sklinn.warehousemxinfosystem.Adapter.ProductItemListener
+import com.sklinn.warehousemxinfosystem.Activity.ProductInfoActivity
 import com.sklinn.warehousemxinfosystem.Adapter.ProductListAdapter
-import com.sklinn.warehousemxinfosystem.Model.AppDatabase
+import com.sklinn.warehousemxinfosystem.AppDatabase.AppDatabase
 import com.sklinn.warehousemxinfosystem.Model.Product
 import com.sklinn.warehousemxinfosystem.Model.ProductDao
 import kotlinx.android.synthetic.main.fragment_product_list.*
@@ -30,14 +30,13 @@ class ProductListFragment() : Fragment(), ProductItemListener {
         super.onViewCreated(view, savedInstanceState)
 
         productDao = AppDatabase.getDatabase(requireContext()).getProductDao()
-        val productList = productDao.getAllProduct()
+
 
         productListAdapter = ProductListAdapter(this)
         rvProductList.adapter = productListAdapter
-        rvProductList.layoutManager =
-            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        rvProductList.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
-        productListAdapter.setNewData(productList)
+        loadProduct()
 
         fabAddProduct.setOnClickListener {
             val intent = ProductInfoActivity.newIntent(requireContext())
@@ -51,12 +50,12 @@ class ProductListFragment() : Fragment(), ProductItemListener {
     }
 
     private fun loadProduct() {
-        productDao = AppDatabase.getDatabase(requireContext()).getProductDao()
-        productDao.getAllProduct()
+        val productList = productDao.getAllProduct()
+        productListAdapter.setNewData(productList)
     }
 
     override fun onDeleteClick(product: Product) {
-        val Dialog = AlertDialog.Builder(requireContext())
+        val dialog = AlertDialog.Builder(requireContext())
             .setTitle("Delete")
             .setMessage("Are you sure to delete ${product.pName}")
             .setPositiveButton("Delete") { dialog, which ->
@@ -67,6 +66,6 @@ class ProductListFragment() : Fragment(), ProductItemListener {
             .setNegativeButton("Cancel") { dialog, which ->
                 dialog.dismiss()
             }.create()
-        Dialog.show()
+        dialog.show()
     }
 }

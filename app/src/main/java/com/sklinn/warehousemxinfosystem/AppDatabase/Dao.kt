@@ -20,3 +20,16 @@ interface ProductDao {
     @Delete
     fun deleteProduct(product: Product): Int
 }
+
+@Dao
+interface VenderDao{
+
+    @Insert
+    fun createVendor(vendor: Vendor): Long
+
+//    @Query ("SELECT * FROM table_vendor WHERE vendor_id = :id")
+//    fun getVendorById(id: Long): Vendor
+
+    @Query("SELECT * FROM table_vendor")
+    fun getAllVendors(): List<Vendor>
+}

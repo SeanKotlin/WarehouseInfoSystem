@@ -5,16 +5,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.sklinn.warehousemxinfosystem.Model.Product
+import com.sklinn.warehousemxinfosystem.ProductItemListener
 import com.sklinn.warehousemxinfosystem.R
 import kotlinx.android.synthetic.main.item_product.view.*
 
 class ProductListAdapter(
-    private val listener: ProductItemListener
-): RecyclerView.Adapter<ProductListAdapter.myViewHolder>() {
+    var listener: ProductItemListener
+) : RecyclerView.Adapter<ProductListAdapter.myViewHolder>() {
     private var productlist = mutableListOf<Product>()
 
-    inner class myViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        fun populateUi(data: Product){
+    inner class myViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun populateUi(data: Product) {
             itemView.item_program.text = data.pProgram
             itemView.item_ProductName.text = data.pName
 
@@ -27,7 +28,7 @@ class ProductListAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): myViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val view = layoutInflater.inflate(R.layout.item_product,parent, false)
+        val view = layoutInflater.inflate(R.layout.item_product, parent, false)
         return myViewHolder(view)
     }
 
@@ -40,7 +41,7 @@ class ProductListAdapter(
         return productlist.size
     }
 
-    fun setNewData(list: List<Product>){
+    fun setNewData(list: List<Product>) {
         productlist.clear()
         productlist.addAll(list)
         notifyDataSetChanged()
