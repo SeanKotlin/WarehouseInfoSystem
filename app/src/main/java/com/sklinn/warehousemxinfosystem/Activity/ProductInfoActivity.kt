@@ -5,8 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.sklinn.warehousemxinfosystem.AppDatabase.AppDatabase
+import com.sklinn.warehousemxinfosystem.AppDatabase.ProductDao
 import com.sklinn.warehousemxinfosystem.Model.Product
-import com.sklinn.warehousemxinfosystem.Model.ProductDao
 import com.sklinn.warehousemxinfosystem.R
 import kotlinx.android.synthetic.main.activity_product_info.*
 

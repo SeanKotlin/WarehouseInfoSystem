@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.menu_bot_productlist -> ProductListFragment()
                 R.id.menu_bot_vendor -> VendorListFragment()
                 R.id.menu_bot_transaction -> TransactionFragment()
+
                 R.id.menu_bot_profile -> ProfileFragment()
                 else -> null
             }

@@ -10,7 +10,6 @@ import kotlinx.android.synthetic.main.item_vendor.view.*
 
 class VendorListAdapter(
 //    var listener: VendorItemListener
-
 ) : RecyclerView.Adapter<VendorListAdapter.myViewHolder>() {
 
     private var vendorList = mutableListOf<Vendor>()

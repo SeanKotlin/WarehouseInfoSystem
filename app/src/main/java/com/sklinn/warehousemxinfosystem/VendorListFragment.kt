@@ -9,12 +9,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.sklinn.warehousemxinfosystem.Activity.VendorInfoActivity
 import com.sklinn.warehousemxinfosystem.Adapter.VendorListAdapter
 import com.sklinn.warehousemxinfosystem.AppDatabase.AppDatabase
-import com.sklinn.warehousemxinfosystem.Model.VenderDao
+import com.sklinn.warehousemxinfosystem.AppDatabase.VendorDao
 import kotlinx.android.synthetic.main.fragment_vendor_list.*
 
 class VendorListFragment : Fragment() {
     private lateinit var vendorListAdapter: VendorListAdapter
-    private lateinit var vendorDao: VenderDao
+    private lateinit var vendorDao: VendorDao
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,28 +28,28 @@ class VendorListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         vendorDao = AppDatabase.getDatabase(requireContext()).getVendorDao()
-        val vendorList = vendorDao.getAllVendors()
 
         vendorListAdapter = VendorListAdapter()
         rvVendorList.adapter = vendorListAdapter
-        rvVendorList.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
+        rvVendorList.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
-        vendorListAdapter.setNewData(vendorList)
 
         fabAddVendor.setOnClickListener {
-            createVendor()
+            //go to intent
+            val intent = VendorInfoActivity.newIntent(requireContext())
+            startActivity(intent)
         }
 
     }
 
-    private fun createVendor(){
-        val intent = VendorInfoActivity.newIntent(requireContext())
-        startActivity(intent)
+    override fun onStart() {
+        super.onStart()
+        loadVendor()
     }
 
-//    override fun onReadClick(vendor: Vendor) {
-//
-//    }
-
+    private fun loadVendor(){
+        val vendorList = vendorDao.getAllVendors()
+        vendorListAdapter.setNewData(vendorList)
+    }
 
 }

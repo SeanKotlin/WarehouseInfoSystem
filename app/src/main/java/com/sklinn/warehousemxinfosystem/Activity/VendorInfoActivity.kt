@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.sklinn.warehousemxinfosystem.AppDatabase.AppDatabase
+import com.sklinn.warehousemxinfosystem.AppDatabase.VendorDao
 import com.sklinn.warehousemxinfosystem.Model.*
 import com.sklinn.warehousemxinfosystem.R
 import kotlinx.android.synthetic.main.activity_product_info.*
@@ -12,7 +13,7 @@ import kotlinx.android.synthetic.main.fragment_profile.*
 
 class VendorInfoActivity : AppCompatActivity() {
 
-    private lateinit var venderDao: VenderDao
+    private lateinit var venderDao: VendorDao
 
     companion object {
         fun newIntent(context: Context): Intent {
@@ -22,14 +23,13 @@ class VendorInfoActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_product_info)
+        setContentView(R.layout.activity_vendor_info)
 
         venderDao = AppDatabase.getDatabase(applicationContext).getVendorDao()
 
         //create product
         fabAcceptVendor.setOnClickListener {
             createVendor()
-            finish()
         }
     }
 

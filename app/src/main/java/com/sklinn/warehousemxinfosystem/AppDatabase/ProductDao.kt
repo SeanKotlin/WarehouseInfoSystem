@@ -1,9 +1,11 @@
-package com.sklinn.warehousemxinfosystem.Model
+package com.sklinn.warehousemxinfosystem.AppDatabase
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import com.sklinn.warehousemxinfosystem.Model.Product
+import com.sklinn.warehousemxinfosystem.Model.Vendor
 
 @Dao
 interface ProductDao {
@@ -21,15 +23,4 @@ interface ProductDao {
     fun deleteProduct(product: Product): Int
 }
 
-@Dao
-interface VenderDao{
 
-    @Insert
-    fun createVendor(vendor: Vendor): Long
-
-//    @Query ("SELECT * FROM table_vendor WHERE vendor_id = :id")
-//    fun getVendorById(id: Long): Vendor
-
-    @Query("SELECT * FROM table_vendor")
-    fun getAllVendors(): List<Vendor>
-}

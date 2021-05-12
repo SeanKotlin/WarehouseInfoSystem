@@ -1,11 +1,13 @@
 package com.sklinn.warehousemxinfosystem.Model
 
-import android.graphics.Bitmap
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.android.parcel.Parcelize
 
-@Entity(tableName = "table_vendor")
+@Parcelize
+@Entity
 class Vendor(
 
     @PrimaryKey(autoGenerate = true)
@@ -31,4 +33,4 @@ class Vendor(
 
     @ColumnInfo(name = "photo")
     val photo: String
-)
+): Parcelable

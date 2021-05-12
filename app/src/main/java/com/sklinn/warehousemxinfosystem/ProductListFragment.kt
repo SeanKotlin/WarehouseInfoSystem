@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.sklinn.warehousemxinfosystem.Activity.ProductInfoActivity
 import com.sklinn.warehousemxinfosystem.Adapter.ProductListAdapter
 import com.sklinn.warehousemxinfosystem.AppDatabase.AppDatabase
+import com.sklinn.warehousemxinfosystem.AppDatabase.ProductDao
 import com.sklinn.warehousemxinfosystem.Model.Product
-import com.sklinn.warehousemxinfosystem.Model.ProductDao
 import kotlinx.android.synthetic.main.fragment_product_list.*
 
 class ProductListFragment() : Fragment(), ProductItemListener {
