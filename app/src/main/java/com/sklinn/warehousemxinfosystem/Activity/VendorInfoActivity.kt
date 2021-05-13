@@ -30,13 +30,14 @@ class VendorInfoActivity : AppCompatActivity() {
         //create product
         fabAcceptVendor.setOnClickListener {
             createVendor()
+            onBackPressed()
         }
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        finish()
-        return true
-    }
+//    override fun onSupportNavigateUp(): Boolean {
+//        finish()
+//        return true
+//    }
 
     private fun createVendor() {
         val vendorName = etVendorName.text.toString()
