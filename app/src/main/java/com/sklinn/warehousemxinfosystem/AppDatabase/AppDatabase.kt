@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.sklinn.warehousemxinfosystem.Model.Product
 import com.sklinn.warehousemxinfosystem.Model.Vendor
 
-@Database(entities = arrayOf(Product::class, Vendor::class), version = 3, exportSchema = false)
+@Database(entities = arrayOf(Product::class, Vendor::class), version = 4, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun getProductDao(): ProductDao

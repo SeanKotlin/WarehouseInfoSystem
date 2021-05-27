@@ -30,7 +30,6 @@ class VendorInfoActivity : AppCompatActivity() {
         //create product
         fabAcceptVendor.setOnClickListener {
             createVendor()
-            onBackPressed()
         }
     }
 
@@ -58,5 +57,6 @@ class VendorInfoActivity : AppCompatActivity() {
             photo = photo
         )
         venderDao.createVendor(vendor)
+        onBackPressed()
     }
 }

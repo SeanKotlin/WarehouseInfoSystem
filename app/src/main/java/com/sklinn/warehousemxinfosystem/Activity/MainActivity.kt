@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.sklinn.warehousemxinfosystem.*
+import com.sklinn.warehousemxinfosystem.fragment.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -14,10 +15,10 @@ class MainActivity : AppCompatActivity() {
 
         bot_navigation.setOnNavigationItemSelectedListener { item->
             val fragment = when(item.itemId){
+                R.id.menu_bot_dashboard -> DashboardFragment()
                 R.id.menu_bot_productlist -> ProductListFragment()
                 R.id.menu_bot_vendor -> VendorListFragment()
                 R.id.menu_bot_transaction -> TransactionFragment()
-
                 R.id.menu_bot_profile -> ProfileFragment()
                 else -> null
             }
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
          return@setOnNavigationItemSelectedListener true
         }
-        bot_navigation.selectedItemId = R.id.menu_bot_productlist
+        bot_navigation.selectedItemId = R.id.menu_bot_dashboard
     }
 
     private fun replaceFragment(fragment: Fragment){

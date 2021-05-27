@@ -17,4 +17,7 @@
         android:id="@+id/menu_bot_profile"
         android:icon="@drawable/ic_person"
         android:title="Profile" />
+    <item
+        android:id="@+id/menu_bot_dashboard"
+        android:title="Dashboard" />
 </menu>

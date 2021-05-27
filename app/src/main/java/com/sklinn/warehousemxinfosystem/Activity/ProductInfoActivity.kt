@@ -29,14 +29,15 @@ class ProductInfoActivity : AppCompatActivity() {
         //create product
         fabAcceptVendor.setOnClickListener {
             createProduct()
-            finish()
+            onBackPressed()  //new back pressed
+//            finish()
         }
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        finish()
-        return true
-    }
+//    override fun onSupportNavigateUp(): Boolean {
+//        finish()
+//        return true
+//    }
 
     private fun createProduct() {
         val productName = etVendorName.text.toString()

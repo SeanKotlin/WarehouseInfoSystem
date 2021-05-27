@@ -1,4 +1,4 @@
-package com.sklinn.warehousemxinfosystem
+package com.sklinn.warehousemxinfosystem.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +10,7 @@ import com.sklinn.warehousemxinfosystem.Activity.VendorInfoActivity
 import com.sklinn.warehousemxinfosystem.Adapter.VendorListAdapter
 import com.sklinn.warehousemxinfosystem.AppDatabase.AppDatabase
 import com.sklinn.warehousemxinfosystem.AppDatabase.VendorDao
+import com.sklinn.warehousemxinfosystem.R
 import kotlinx.android.synthetic.main.fragment_vendor_list.*
 
 class VendorListFragment : Fragment() {

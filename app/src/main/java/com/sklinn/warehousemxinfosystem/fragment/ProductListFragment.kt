@@ -1,4 +1,4 @@
-package com.sklinn.warehousemxinfosystem
+package com.sklinn.warehousemxinfosystem.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,6 +12,8 @@ import com.sklinn.warehousemxinfosystem.Adapter.ProductListAdapter
 import com.sklinn.warehousemxinfosystem.AppDatabase.AppDatabase
 import com.sklinn.warehousemxinfosystem.AppDatabase.ProductDao
 import com.sklinn.warehousemxinfosystem.Model.Product
+import com.sklinn.warehousemxinfosystem.ProductItemListener
+import com.sklinn.warehousemxinfosystem.R
 import kotlinx.android.synthetic.main.fragment_product_list.*
 
 class ProductListFragment() : Fragment(), ProductItemListener {
